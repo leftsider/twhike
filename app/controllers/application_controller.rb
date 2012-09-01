@@ -4,7 +4,11 @@ class ApplicationController < ActionController::Base
   private
 
   def auth_required
-    session[:current_user]
+    if session[:current_user]
+      true
+    else
+      redirect_to "/auth/twitter"
+    end
   end
 
   def twitter_client

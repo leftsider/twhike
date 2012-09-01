@@ -1,7 +1,8 @@
 class SessionsController < ApplicationController
+
   def create
     session[:current_user] = { 'info' => auth_hash['info'], 'credentials' => auth_hash['credentials'] }
-    redirect_to '/'
+    redirect_to tweets_path
   end
 
   protected
