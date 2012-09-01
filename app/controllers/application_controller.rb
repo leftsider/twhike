@@ -16,8 +16,8 @@ class ApplicationController < ActionController::Base
       @twitter_client
     else
       @twitter_client = Twitter::Client.new(
-        :oauth_token => auth_required['credentials']['token'],
-        :oauth_token_secret => auth_required['credentials']['secret']
+        :oauth_token => session[:current_user]['credentials']['token'],
+        :oauth_token_secret => session[:current_user]['credentials']['secret']
       )
       Rails.logger.info @twitter_client.inspect
       @twitter_client
