@@ -1,6 +1,6 @@
 class SessionsController < ApplicationController
   def create
-    session[:current_user] = auth_hash
+    session[:current_user] = { 'info' => auth_hash['info'], 'credentials' => auth_hash['credentials'] }
     redirect_to '/'
   end
 
